@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap');
+
+$main-gradient: linear-gradient(180deg, #319CFF 0%, #6ADBFF 41.46%, rgba(93, 226, 255, 0.47) 100%);
+$box-shadow1: 0px 4px 4px rgba(0, 0, 0, 0.25),
+inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+$box-shadow2: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+$white-color: rgba(255, 255, 255, 0.85);
+$blue-color: #355370;
+$gray-color: #9B9393;
+$black-color: #000000;
+
+%background-settings {
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+%titleText-settings {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
+    color: $blue-color;
+}
+
+%calculation-text {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+}
+
+%toolbar-style {
+    background-color: rgba(169, 240, 255, 0.2);
+}
+
+%displayflex-sb {
+    display: flex;
+    justify-content: space-between;
+}
+
+%displayflex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.mainzone-calc {
+    width: 351px;
+    height: 630px;
+    margin: auto;
+    margin-top: 15px;
+
+    .background-calc {
+        width: 100%;
+        height: 100%;
+        padding-top: 11px;
+        background: $main-gradient;
+        box-shadow: $box-shadow1;
+        border-radius: 40px;
+
+        .calc-display {
+            margin: auto;
+            width: 329px;
+            height: 618px;
+            background: $white-color;
+            box-shadow: $box-shadow2;
+            border-radius: 35px;
+        }
+    }
+}
+
+.icons {
+    display: flex;
+    padding-top: 37px;
+    padding-bottom: 91px;
+    padding-left: 20px;
+
+    .burger {
+        background-image: url(./image/burger.svg);
+        width: 24px;
+        height: 24px;
+        @extend %background-settings;
+        cursor: pointer;
+    }
+
+    .title-text {
+        @extend %titleText-settings;
+        margin-left: 14px;
+    }
+
+    .switcher {
+        margin: auto;
+        margin-left: 125px;
+        background-image: url(./image/switcher.svg);
+        width: 14px;
+        height: 16px;
+        @extend %background-settings;
+        cursor: pointer;
+    }
+}
+
+.calculation-zone {
+    @extend %displayflex-column;
+    align-items: flex-end;
+    padding-right: 24px;
+    padding-bottom: 31px;
+    height: 90px;
+
+    .calc-operation {
+        @extend %calculation-text;
+        color: $gray-color;
+        height: 45px;
+    }
+
+    .main-operation {
+        @extend %calculation-text;
+        color: $black-color;
+        height: 45px;
+    }
+}
+
+.first-toolbar {
+    width: 327px;
+    height: 54px;
+    @extend %toolbar-style;
+    @extend %displayflex-sb;
+
+    .time-icon {
+        margin: auto;
+        width: 32px;
+        height: 32px;
+        background-image: url(./image/Time.svg);
+        @extend %background-settings;
+        cursor: pointer;
+    }
+
+    .arrow-icon {
+        margin: auto;
+        width: 32px;
+        height: 26px;
+        background-image: url(./image/Arrow_top.svg);
+        @extend %background-settings;
+        cursor: pointer;
+    }
+
+    .c-icon {
+        margin: auto;
+        width: 24px;
+        height: 24px;
+        background-image: url(./image/C.svg);
+        @extend %background-settings;
+        cursor: pointer;
+    }
+
+    .clean-icon {
+        margin: auto;
+        width: 56px;
+        height: 37px;
+        background-image: url(./image/clean.svg);
+        @extend %background-settings;
+        cursor: pointer;
+    }
+
+    .refresh-icon {
+        margin: auto;
+        width: 32.89px;
+        height: 28.41px;
+        background-image: url(./image/refresh.svg);
+        @extend %background-settings;
+        cursor: pointer;
+    }
+}
+
+.second-tollbar {
+    width: 270px;
+    margin: auto;
+    margin-top: 13px;
+
+    .row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    .button {
+        @extend %calculation-text;
+        font-size: 22px;
+        width: 15px;
+        height: 15px;
+        cursor: pointer;
+        margin-bottom: 9px;
+    }
+
+    #sqr {
+        background-image: url(./image/sqr.svg);
+        @extend %background-settings;
+        margin-top: 3px;
+        width: 13px;
+        height: 16px;
+    }
+
+    #divide {
+        background-image: url(./image/divide.svg);
+        @extend %background-settings;
+        margin-top: 5px;
+        width: 13px;
+        height: 16px;
+    }
+
+    #PE {
+        background-image: url(./image/PE.svg);
+        @extend %background-settings;
+        margin-top: 8px;
+        width: 13px;
+        height: 16px;
+    }
+}
