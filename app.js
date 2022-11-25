@@ -16,11 +16,14 @@ const btnPlus = document.querySelector(`#plus`),
     btnXY = document.querySelector(`#xy`),
     btnX2 = document.querySelector(`#x2`),
     btnEquals = document.querySelector(`#equals`),
-    refresh = document.querySelector(`.refresh-icon`);
+    btnCos = document.querySelector(`#cos`),
+    refresh = document.querySelector(`.c-icon`),
+    reverse = document.querySelector(`.refresh-icon`),
+    btnDelete = document.querySelector(`.clean-icon`);
 const mainCalcZone = document.querySelector(`.main-operation`),
     operationZone = document.querySelector(`.calc-operation`);
-let firstNumber = ``;
-let lastNumber = ``;
+let firstNumber = ``,
+    lastNumber = ``;
 let resultOfMath = 0,
     previousNumb = 0;
 let archiveOfSymblos = [];
@@ -219,6 +222,19 @@ btnProcent.addEventListener(`click`, () => {
     mathFlag = true;
     equalsFlag = false;
 })
+btnCos.addEventListener(`click`, () => {
+    if (resultOfMath != 0) {
+        operationZone.textContent = `cos(${resultOfMath})`;
+    } else {
+        operationZone.textContent = `cos(${firstNumber})`;
+    }
+    lastNumber = ``;
+    archiveOfSymblos = [];
+    archiveOfSymblos.push(``);
+    mainCalcZone.textContent = ``;
+    mathFlag = true;
+    equalsFlag = false;
+})
 btnEquals.addEventListener(`click`, () => {
     if (archiveOfSymblos.includes(`+`)) {
         if (resultOfMath != 0 && equalsFlag === true) {
@@ -322,7 +338,6 @@ btnEquals.addEventListener(`click`, () => {
     }
     if (archiveOfSymblos.includes(`^2`)) {
         if (resultOfMath != 0 && equalsFlag === true) {
-
             operationZone.textContent = `${resultOfMath} ^ 2`;
             resultOfMath **= 2;
             mainCalcZone.textContent = resultOfMath;
@@ -368,4 +383,50 @@ refresh.addEventListener(`click`, () => {
     lastNumber = ``;
     operationZone.textContent = ``;
     mainCalcZone.textContent = ``;
+});
+
+btnDelete.addEventListener(`click`, () => {
+    if (resultOfMath.length != 0 && resultOfMath != 0) {
+        resultOfMath = resultOfMath + ``
+        resultOfMath = resultOfMath.split(``).filter((el, index) => index < resultOfMath.length - 1).join(``);
+        mainCalcZone.textContent = `${resultOfMath}`;
+        console.log(Number(resultOfMath));
+    } else if (archiveOfSymblos.length != 0) {
+        if (lastNumber.length === 1) {
+            lastNumber = `0`;
+            mainCalcZone.textContent = ``;
+        } else {
+            lastNumber = lastNumber.split(``).filter((el, index) => index < lastNumber.length - 1).join(``);
+            mainCalcZone.textContent = `${lastNumber}`;
+        }
+    } else {
+        if (firstNumber.length === 1) {
+            firstNumber = `0`;
+            mainCalcZone.textContent = ``;
+        } else {
+            firstNumber = firstNumber.split(``).filter((el, index) => index < firstNumber.length - 1).join(``);
+            mainCalcZone.textContent = `${firstNumber}`;
+        }
+    }
+})
+
+reverse.addEventListener(`click`, () => {
+    if (resultOfMath != `0`) {
+        resultOfMath = resultOfMath + ``;
+        if (resultOfMath.length > 1) {
+            resultOfMath = resultOfMath.split(``).reverse().join(``);
+            resultOfMath = +resultOfMath;
+            mainCalcZone.textContent = `${resultOfMath}`;
+        }
+    } else if (archiveOfSymblos.length != 0) {
+        if (lastNumber.length > 1) {
+            lastNumber = lastNumber.split(``).reverse().join(``);
+            mainCalcZone.textContent = `${lastNumber}`;
+        }
+    } else {
+        if (firstNumber.length > 1) {
+            firstNumber = firstNumber.split(``).reverse().join(``);
+            mainCalcZone.textContent = `${firstNumber}`;
+        }
+    }
 })
