@@ -25,7 +25,7 @@ let resultOfMath = 0,
     previousNumb = 0;
 let archiveOfSymblos = [];
 let equalsFlag = false,
-    mathFlag = false;
+    mathFlag = false
 
 
 btnNum1.addEventListener(`click`, () => {
@@ -368,4 +368,5 @@ refresh.addEventListener(`click`, () => {
     lastNumber = ``;
     operationZone.textContent = ``;
     mainCalcZone.textContent = ``;
-})
+});
+
