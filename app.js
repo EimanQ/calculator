@@ -258,6 +258,7 @@ btnEquals.addEventListener(`click`, () => {
             mainCalcZone.textContent = resultOfMath;
         }
     }
+    
     if (archiveOfSymblos.includes(`*`)) {
         if (resultOfMath != 0 && equalsFlag === true) {
 
@@ -279,6 +280,7 @@ btnEquals.addEventListener(`click`, () => {
             mainCalcZone.textContent = resultOfMath;
         }
     }
+
     if (archiveOfSymblos.includes(`/`)) {
         if (resultOfMath != 0 && equalsFlag === true) {
 
@@ -300,6 +302,7 @@ btnEquals.addEventListener(`click`, () => {
             mainCalcZone.textContent = resultOfMath;
         }
     }
+
     if (archiveOfSymblos.includes(`^`)) {
         if (resultOfMath != 0 && equalsFlag === true) {
 
@@ -320,6 +323,7 @@ btnEquals.addEventListener(`click`, () => {
             mainCalcZone.textContent = resultOfMath;
         }
     }
+
     if (archiveOfSymblos.includes(`^2`)) {
         if (resultOfMath != 0 && equalsFlag === true) {
 
@@ -340,6 +344,7 @@ btnEquals.addEventListener(`click`, () => {
             mainCalcZone.textContent = resultOfMath;
         }
     }
+
     if (archiveOfSymblos.includes(`%`)) {
         if (resultOfMath != 0 && equalsFlag === true) {
             operationZone.textContent = `${resultOfMath} % ${previousNumb}`;
@@ -360,7 +365,6 @@ btnEquals.addEventListener(`click`, () => {
         }
     }
 })
-
 refresh.addEventListener(`click`, () => {
     resultOfMath = 0;
     mathFlag = false;
@@ -369,4 +373,3 @@ refresh.addEventListener(`click`, () => {
     operationZone.textContent = ``;
     mainCalcZone.textContent = ``;
 });
-
